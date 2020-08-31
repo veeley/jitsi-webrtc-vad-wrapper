@@ -36,14 +36,8 @@ public class WebRTCVad
     static
     {
         try {
-            String os = System.getProperty("os.name");
-
-            if (os.toLowerCase().contains("linux")) {
-                JNIUtils.loadLibrary("fvad", WebRTCVad.class);
-                JNIUtils.loadLibrary("webrtcvadwrapper", WebRTCVad.class);
-            } else {
-                throw new Exception("Unsupported OS: " + os);
-            }
+            JNIUtils.loadLibrary("fvad", WebRTCVad.class);
+            JNIUtils.loadLibrary("webrtcvadwrapper", WebRTCVad.class);
         } catch (Exception e) {
             System.out.println("Error loading native library: " + e);
         }
